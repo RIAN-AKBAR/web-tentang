@@ -25,13 +25,14 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
-            width: 85%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         /* Header */
@@ -41,7 +42,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -53,7 +54,7 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary);
             text-decoration: none;
         }
@@ -68,13 +69,14 @@
         }
 
         nav ul li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
 
         nav ul li a {
             color: var(--dark);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
@@ -83,68 +85,129 @@
             color: var(--primary);
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger span:nth-child(2),
+        .hamburger span:nth-child(3) {
+            top: 10px;
+        }
+
+        .hamburger span:nth-child(4) {
+            top: 20px;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .hamburger.open span:nth-child(4) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+
         /* Contact Section */
         .contact {
-            padding: 150px 0 80px;
+            padding: 120px 0 60px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-title h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         .section-title p {
             color: var(--gray);
+            font-size: 0.95rem;
         }
 
         .contact-content {
             display: flex;
-            gap: 50px;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .contact-info {
             flex: 1;
+            min-width: 300px;
         }
 
         .contact-info h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .info-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .info-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 15px;
             flex-shrink: 0;
+            font-size: 1.1rem;
         }
 
         .info-text h3 {
             margin-bottom: 5px;
+            font-size: 1.1rem;
         }
 
         .info-text p,
         .info-text a {
             color: var(--gray);
             text-decoration: none;
+            font-size: 0.9rem;
         }
 
         .info-text a:hover {
@@ -153,62 +216,68 @@
 
         .contact-form {
             flex: 1;
+            min-width: 300px;
             background-color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px 15px;
             border: 1px solid #dee2e6;
             border-radius: 5px;
             font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.25);
+            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.15);
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 120px;
+            resize: vertical;
         }
 
         .submit-btn {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 5px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
+            font-size: 0.95rem;
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 50px 0 20px;
+            padding: 40px 0 20px;
             text-align: center;
         }
 
@@ -216,31 +285,122 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .footer-links li {
-            margin: 0 15px;
+            margin: 0 10px 10px;
         }
 
         .footer-links a {
             color: white;
             text-decoration: none;
+            font-size: 0.9rem;
         }
 
         .copyright {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--gray);
         }
 
-        /* Responsive */
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .contact {
+                padding: 110px 0 50px;
+            }
+            
+            .section-title h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info h2 {
+                font-size: 1.6rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 70%;
+                height: calc(100vh - 70px);
+                background-color: rgba(248, 249, 250, 0.98);
+                transition: all 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .contact {
+                padding: 100px 0 40px;
+            }
+            
             .contact-content {
                 flex-direction: column;
+                gap: 30px;
             }
             
             .contact-info {
-                margin-bottom: 50px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h1 {
+                font-size: 1.7rem;
+            }
+            
+            .contact-info h2 {
+                font-size: 1.4rem;
+            }
+            
+            .info-text p,
+            .info-text a {
+                font-size: 0.85rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .section-title h1 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info,
+            .contact-form {
+                min-width: 100%;
             }
         }
     </style>
@@ -249,6 +409,13 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">Rian<span>Akbar</span></a>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             
             <nav>
                 <ul>
@@ -274,7 +441,7 @@
                     
                     <div class="info-item">
                         <div class="info-icon">
-                            <i>📍</i>
+                            📍
                         </div>
                         <div class="info-text">
                             <h3>Alamat</h3>
@@ -284,7 +451,7 @@
                     
                     <div class="info-item">
                         <div class="info-icon">
-                            <i>📧</i>
+                            📧
                         </div>
                         <div class="info-text">
                             <h3>Email</h3>
@@ -294,17 +461,17 @@
                     
                     <div class="info-item">
                         <div class="info-icon">
-                            <i>📱</i>
+                            📱
                         </div>
                         <div class="info-text">
                             <h3>Telepon</h3>
-                            <a href="tel:+6285167089251">+62-851-6708-9251</a>
+                            <a href="tel:+6285167089251">+62 851-6708-9251</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Nama Lengkap</label>
                             <input type="text" id="name" class="form-control" required>
@@ -325,7 +492,7 @@
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
                         
-                        <button href="mailto:rian032008@gmail.com" type="submit" class="submit-btn">Kirim Pesan</button>
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
                     </form>
                 </div>
             </div>
@@ -344,5 +511,51 @@
             <p class="copyright">&copy; 2025 Muhammad Rian Akbar.</p>
         </div>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                nav.classList.remove('active');
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Construct mailto link
+            const mailtoLink = `mailto:rian032008@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`
+            )}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Show success message (optional)
+            alert('Terima kasih! Email client akan terbuka untuk mengirim pesan Anda.');
+        });
+    </script>
 </body>
 </html>
