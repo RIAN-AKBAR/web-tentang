@@ -25,13 +25,14 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
-            width: 85%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         /* Header */
@@ -41,7 +42,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -53,7 +54,7 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary);
             text-decoration: none;
         }
@@ -68,13 +69,14 @@
         }
 
         nav ul li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
 
         nav ul li a {
             color: var(--dark);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
@@ -83,30 +85,86 @@
             color: var(--primary);
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger span:nth-child(2),
+        .hamburger span:nth-child(3) {
+            top: 10px;
+        }
+
+        .hamburger span:nth-child(4) {
+            top: 20px;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .hamburger.open span:nth-child(4) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+
         /* Portfolio Section */
         .portfolio {
-            padding: 150px 0 80px;
+            padding: 120px 0 60px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-title h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         .section-title p {
             color: var(--gray);
+            font-size: 0.95rem;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .portfolio-item {
@@ -114,53 +172,62 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .portfolio-item:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .portfolio-img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
         }
 
         .portfolio-info {
-            padding: 20px;
+            padding: 18px;
         }
 
         .portfolio-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
         }
 
         .portfolio-info p {
             color: var(--gray);
             margin-bottom: 15px;
+            font-size: 0.9rem;
         }
 
         .portfolio-link {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 7px 18px;
             background-color: var(--primary);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 500;
-            transition: background-color 0.3s ease;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
         }
 
         .portfolio-link:hover {
             background-color: #2a75e6;
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 50px 0 20px;
+            padding: 40px 0 20px;
             text-align: center;
         }
 
@@ -168,27 +235,119 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .footer-links li {
-            margin: 0 15px;
+            margin: 0 10px 10px;
         }
 
         .footer-links a {
             color: white;
             text-decoration: none;
+            font-size: 0.9rem;
         }
 
         .copyright {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--gray);
         }
 
-        /* Responsive */
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .portfolio {
+                padding: 110px 0 50px;
+            }
+            
+            .section-title h1 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 70%;
+                height: calc(100vh - 70px);
+                background-color: rgba(248, 249, 250, 0.98);
+                transition: all 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .portfolio {
+                padding: 100px 0 40px;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .section-title h1 {
+                font-size: 1.7rem;
+            }
+            
+            .section-title p {
+                font-size: 0.85rem;
+            }
+            
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .portfolio-img {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .section-title h1 {
+                font-size: 1.5rem;
+            }
+            
+            .portfolio-info h3 {
+                font-size: 1.1rem;
+            }
+            
+            .portfolio-info p {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -197,6 +356,13 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">Rian<span>Akbar</span></a>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             
             <nav>
                 <ul>
@@ -218,21 +384,20 @@
             
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="islam.jpg" alt="Project 1" class="portfolio-img">
+                    <img src="islam.jpg" alt="Website Islami" class="portfolio-img">
                     <div class="portfolio-info">
-                        <h3>Website islami</h3>
-                        <p>Koleksi projek desain, konten, dan teknologi yang mengintegrasikan nilai-nilai Islam dengan kreativitas modern. Fokus pada solusi praktis untuk dakwah digital, edukasi, dan kebutuhan komunitas muslim..</p>
-                        <a href="https://we-islami.vercel.app/" class="portfolio-link">Lihat Detail</a>
+                        <h3>Website Islami</h3>
+                        <p>Koleksi projek desain, konten, dan teknologi yang mengintegrasikan nilai-nilai Islam dengan kreativitas modern. Fokus pada solusi praktis untuk dakwah digital, edukasi, dan kebutuhan komunitas muslim.</p>
+                        <a href="https://we-islami.vercel.app/" class="portfolio-link" target="_blank">Lihat Detail</a>
                     </div>
                 </div>
                 
                 <div class="portfolio-item">
-                    <img src="penyimpanan.jpg" alt="Project 2" class="portfolio-img">
+                    <img src="penyimpanan.jpg" alt="Aplikasi Penyimpanan" class="portfolio-img">
                     <div class="portfolio-info">
-                        <h3>Aplikasi penyimpanan</h3>
+                        <h3>Aplikasi Penyimpanan</h3>
                         <p>Aplikasi cloud storage dengan enkripsi kuat dan kapasitas besar untuk menyimpan semua file penting Anda secara aman.</p>
-                        <a href="https://album-penyimpanan.vercel.app
-/" class="portfolio-link">Lihat Detail</a>
+                        <a href="https://album-penyimpanan.vercel.app" class="portfolio-link" target="_blank">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -251,5 +416,25 @@
             <p class="copyright">&copy; 2025 Muhammad Rian Akbar.</p>
         </div>
     </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                nav.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
